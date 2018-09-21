@@ -14,9 +14,8 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 
-		<spring-boot.version>1.5.10.RELEASE</spring-boot.version>
-
-		<fastjson.version>1.2.41</fastjson.version>
+		<spring-boot.version>1.5.16.RELEASE</spring-boot.version>
+		<fastjson.version>1.2.49</fastjson.version>
 		<commons-io.version>2.6</commons-io.version>
 	</properties>
 
@@ -48,27 +47,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-annotations</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-		</dependency>
-
-		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 			<version>${fastjson.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>${commons-io.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>

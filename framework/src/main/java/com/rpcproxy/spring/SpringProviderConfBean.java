@@ -7,8 +7,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.InitializingBean;
 
+import com.rpcproxy.common.RpcConstants;
 import com.rpcproxy.provider.ProviderBean;
 import com.rpcproxy.provider.ProviderBeanRegistry;
+import com.rpcproxy.provider.servlet.ProviderServletConfig;
 import com.rpcproxy.util.RpcContextHolder;
 import com.rpcproxy.util.SpringContextHolder;
 
@@ -22,6 +24,10 @@ import lombok.NoArgsConstructor;
 public class SpringProviderConfBean implements InitializingBean, Serializable {
 	private static final long serialVersionUID = 6424858342891512053L;
 
+	private boolean asyncMode = true;
+	private int threads = RpcConstants.DEFAULT_THREADS;
+	private int queues = RpcConstants.DEFAULT_QUEUES;
+	private long timeoutinmillis = RpcConstants.DEFAULT_TIMEOUTINMILLIS;
 	private List<String> interfaceNames;
 
 	public void addInterfaceName(String interfaceName) {
@@ -36,6 +42,9 @@ public class SpringProviderConfBean implements InitializingBean, Serializable {
 		if (interfaceNames == null) {
 			throw new IllegalArgumentException("property 'interfaceNames' is required");
 		}
+
+		ProviderServletConfig providerServletConfig = RpcContextHolder.getProviderServletConfig();
+		providerServletConfig.init(asyncMode, threads, queues, timeoutinmillis);
 
 		ProviderBeanRegistry providerBeanRegistry = RpcContextHolder.getProviderBeanRegistry();
 		List<ProviderBean> providerBeans = translate();

@@ -12,4 +12,13 @@ public class DemoServiceImpl implements DemoService {
 		return "Hello " + name;
 	}
 
+	@Override
+	public String sayHelloTimeout(String name) {
+		try {
+			Thread.sleep(5000L);
+		} catch (InterruptedException e) {
+		}
+		return "Hello " + name;
+	}
+
 }

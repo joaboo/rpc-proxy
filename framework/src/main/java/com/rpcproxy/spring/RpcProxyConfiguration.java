@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.rpcproxy.common.RpcConstants;
-import com.rpcproxy.provider.ProviderDispatcherServlet;
+import com.rpcproxy.provider.servlet.ProviderDispatcherServlet;
 import com.rpcproxy.util.SpringContextHolder;
 
 @Configuration
@@ -28,6 +28,8 @@ public class RpcProxyConfiguration {
 
 	@Bean
 	public ServletRegistrationBean servletRegistrationBean() {
-		return new ServletRegistrationBean(new ProviderDispatcherServlet(), RpcConstants.DISPATCH_REQUEST_MAPPING);
+		ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(new ProviderDispatcherServlet(), RpcConstants.DISPATCH_REQUEST_MAPPING);
+		servletRegistrationBean.setAsyncSupported(true);
+		return servletRegistrationBean;
 	}
 }

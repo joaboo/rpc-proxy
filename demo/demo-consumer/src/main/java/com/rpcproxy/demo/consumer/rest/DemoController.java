@@ -18,4 +18,9 @@ public class DemoController {
 		return demoService.sayHello(name);
 	}
 
+	@GetMapping("/sayHelloTimeout")
+	public String sayHelloTimeout(@RequestParam String name) {
+		return demoService.sayHelloTimeout(name);
+	}
+
 }
