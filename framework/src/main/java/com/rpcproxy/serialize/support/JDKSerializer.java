@@ -23,7 +23,7 @@ public class JDKSerializer implements Serializer {
 			objectOutputStream.flush();
 			return byteArrayOutputStream.toByteArray();
 		} catch (Throwable e) {
-			throw new SerializationException("Could not write JSON: " + e.getMessage(), e);
+			throw new SerializationException("Could not write byte array: " + e.getMessage(), e);
 		}
 	}
 
@@ -42,7 +42,7 @@ public class JDKSerializer implements Serializer {
 			ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
 			return objectInputStream.readObject();
 		} catch (Throwable e) {
-			throw new SerializationException("Could not read JSON: " + e.getMessage(), e);
+			throw new SerializationException("Could not read byte array: " + e.getMessage(), e);
 		}
 	}
 }

@@ -27,7 +27,7 @@ public class SpringProviderConfBean implements InitializingBean, Serializable {
 	private boolean asyncMode = true;
 	private int threads = RpcConstants.DEFAULT_THREADS;
 	private int queues = RpcConstants.DEFAULT_QUEUES;
-	private long timeoutinmillis = RpcConstants.DEFAULT_TIMEOUTINMILLIS;
+	private long timeoutInMillis = RpcConstants.DEFAULT_TIMEOUTINMILLIS;
 	private List<String> interfaceNames;
 
 	public void addInterfaceName(String interfaceName) {
@@ -44,7 +44,7 @@ public class SpringProviderConfBean implements InitializingBean, Serializable {
 		}
 
 		ProviderServletConfig providerServletConfig = RpcContextHolder.getProviderServletConfig();
-		providerServletConfig.init(asyncMode, threads, queues, timeoutinmillis);
+		providerServletConfig.init(asyncMode, threads, queues, timeoutInMillis);
 
 		ProviderBeanRegistry providerBeanRegistry = RpcContextHolder.getProviderBeanRegistry();
 		List<ProviderBean> providerBeans = translate();

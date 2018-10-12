@@ -14,14 +14,14 @@ public class ProviderServletConfig {
 	private boolean asyncMode = true;
 	private int threads;
 	private int queues;
-	private long timeoutinmillis;
+	private long timeoutInMillis;
 	private volatile ExecutorService executor;
 
-	public void init(boolean asyncMode, int threads, int queues, long timeoutinmillis) {
+	public void init(boolean asyncMode, int threads, int queues, long timeoutInMillis) {
 		this.asyncMode = asyncMode;
 		this.threads = threads;
 		this.queues = queues;
-		this.timeoutinmillis = timeoutinmillis;
+		this.timeoutInMillis = timeoutInMillis;
 	}
 
 	public ExecutorService getExecutor() {

@@ -42,7 +42,7 @@ public class ProviderDispatcherServlet extends HttpServlet {
 		if (providerServletConfig.isAsyncMode()) {
 			AsyncContext asyncContext = request.startAsync();
 			asyncContext.addListener(new DispatcherListener());
-			asyncContext.setTimeout(providerServletConfig.getTimeoutinmillis());
+			asyncContext.setTimeout(providerServletConfig.getTimeoutInMillis());
 			// asyncContext.start(new RequestProcessor(asyncContext));
 			providerServletConfig.getExecutor().execute(new RequestProcessor(asyncContext));
 		} else {

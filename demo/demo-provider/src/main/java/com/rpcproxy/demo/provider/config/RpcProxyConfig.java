@@ -16,7 +16,7 @@ public class RpcProxyConfig {
 		providerConfBean.setAsyncMode(true);
 		providerConfBean.setThreads(20);
 		providerConfBean.setQueues(100);
-		providerConfBean.setTimeoutinmillis(3000L);
+		providerConfBean.setTimeoutInMillis(3000L);
 		providerConfBean.addInterfaceName(com.rpcproxy.demo.api.service.DemoService.class.getName());
 		return providerConfBean;
 	}
